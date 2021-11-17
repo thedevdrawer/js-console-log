@@ -1,0 +1,77 @@
+<script>
+    //debugger
+    var width = 100
+    var height = 100
+
+    console.log(width)
+    console.log(height)
+
+    // show name values
+    console.log({width})
+    console.log({height})
+    console.log({width}, {height})
+
+    // show specific types of console messages
+    console.log("This is a message")
+    console.info("This is information")
+    console.error("This is an error message")
+    console.warn("This is a warning")
+
+    // errors and assertions
+    function test(message) {
+        if(!message) {
+            console.error("Message is not defined")
+        }else{
+            console.assert(
+                message.length >= 5, `"${message} is not over 5 characters"`
+            )
+        }
+    }
+
+    test()
+    test('msg')
+    test('message')
+
+    //trace
+    function one(){
+        two()
+    }
+
+    function two(){
+        console.trace()
+    }
+
+    one()
+
+    // grouping
+    let groups = {
+        "Group One": ['One', 'Two', 'Three'],
+        "Group Two": ['Four', 'Five']
+    }
+
+    for (group in groups){
+        console.group(group)
+        groups[group].forEach(g => console.log(g))
+        console.groupEnd(group)
+    }
+
+    console.group('Group One')
+    console.log('One')
+    console.log('Two')
+    console.log('Three')
+    console.groupCollapsed('Collapsed')
+    console.log('Four')
+    console.log('Five')
+    console.groupEnd('Collapsed')
+    console.groupEnd('Group One')
+
+    //tables
+    let tables = {
+        1: {name: 'Test 1', email: 'test1@example.com', phone:'123-456-7890'},
+        2: {name: 'Test 2', email: 'test2@example.com',phone:'123-456-7890'},
+        3: {name: 'Test 3', email: 'test3@example.com',phone:'123-456-7890'}
+    }
+
+    console.table(tables)
+    console.table(tables,['name', 'email'])
+</script>
